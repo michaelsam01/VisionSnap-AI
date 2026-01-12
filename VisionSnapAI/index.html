@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionSnap AI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <!-- Views will be injected here via JS -->
+            <!-- Example: Home View -->
+            <div id="view-home" class="view active">
+                <header class="home-header">
+                    <h1>VisionSnap AI</h1>
+                    <p>Identify anything instantly</p>
+                </header>
+
+                <div class="category-tabs">
+                    <button class="cat-tab active" data-category="general">General</button>
+                    <button class="cat-tab" data-category="food">Food</button>
+                    <button class="cat-tab" data-category="plant">Plant</button>
+                </div>
+
+                <div class="scan-area">
+                    <button id="btn-camera-scan" class="primary-btn pulse-animation">
+                        <i class="fas fa-camera"></i>
+                        <span>Scan with Camera</span>
+                    </button>
+                </div>
+
+                <div class="quick-actions">
+                    <button class="secondary-btn" id="btn-upload">
+                        <i class="fas fa-image"></i>
+                        Uploaded Image
+                    </button>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+
+                <div class="tips-section">
+                    <h3>Daily Insight</h3>
+                    <div class="tip-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Did you know? Scanning plants can help identify toxicity for pets.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-camera" class="view">
+                <div class="camera-overlay">
+                    <video id="camera-feed" autoplay playsinline></video>
+                    <div class="scan-frame"></div>
+                    <div class="camera-instruction">Align item within the frame</div>
+                    <div class="camera-controls">
+                        <button id="btn-close-camera" class="icon-btn"><i class="fas fa-times"></i></button>
+                        <button id="btn-flash" class="icon-btn"><i class="fas fa-bolt"></i></button>
+                        <button id="btn-capture" class="capture-btn"></button>
+                        <button id="btn-switch-camera" class="icon-btn"><i class="fas fa-sync"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-result" class="view">
+                <header class="result-header">
+                    <button class="back-btn" data-target="home"><i class="fas fa-arrow-left"></i></button>
+                    <h2>Result</h2>
+                </header>
+                <div id="result-content">
+                    <!-- Dynamic Result Content -->
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p>Analyzing...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-history-food" class="view">
+                <header class="result-header">
+                    <h2>Meals</h2>
+                </header>
+                <div class="history-list" id="history-list-food"></div>
+            </div>
+
+            <div id="view-history-plant" class="view">
+                <header class="result-header">
+                    <h2>Plants</h2>
+                </header>
+                <div class="history-list" id="history-list-plant"></div>
+            </div>
+            <div id="view-profile" class="view">
+                <header class="result-header">
+                    <h2>Profile</h2>
+                </header>
+                <div class="profile-content">
+                    <div class="user-avatar"><i class="fas fa-user"></i></div>
+                    <h3>Guest User</h3>
+                    <p>Upgrade to save sync cross-devices (Coming Soon)</p>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Navigation Bar -->
+        <nav id="bottom-nav">
+            <button class="nav-item active" data-target="view-home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-target="view-history-food">
+                <i class="fas fa-utensils"></i>
+                <span>Meals</span>
+            </button>
+            <button class="nav-item" data-target="view-history-plant">
+                <i class="fas fa-leaf"></i>
+                <span>Plants</span>
+            </button>
+            <button class="nav-item" data-target="view-profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
